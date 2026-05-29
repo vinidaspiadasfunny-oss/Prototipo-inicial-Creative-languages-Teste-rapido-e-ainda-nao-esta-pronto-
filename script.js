@@ -1,5 +1,5 @@
 const GROQ_API_KEY =
-"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";
+"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";
 
 /* MENU */
 
