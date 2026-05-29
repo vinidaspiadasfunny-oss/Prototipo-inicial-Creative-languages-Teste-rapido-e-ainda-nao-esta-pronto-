@@ -1,363 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative Languages</title>
-
-  <!-- FONT AWESOME -->
-
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- CSS -->
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
   <!-- NAVBAR -->
-
   <nav class="navbar">
-
-    <div onclick="showTab('home')"
-    class="logo-container">
-
-      <div class="logo-icon">
-
-        <i class="fas fa-language"></i>
-
-      </div>
-
-      <span class="logo-text">
-
-        Creative<span>Languages</span>
-
-      </span>
-
+    <div onclick="showTab('home')" class="logo-container">
+      <div class="logo-icon"><i class="fas fa-language"></i></div>
+      <span class="logo-text">Creative<span>Languages</span></span>
     </div>
+    <button onclick="toggleMenu()" class="menu-toggle"><i class="fas fa-bars"></i></button>
 
-    <button onclick="toggleMenu()"
-    class="menu-toggle">
-
-      <i class="fas fa-bars"></i>
-
-    </button>
-
-    <!-- MENU -->
-
-    <div id="sideMenu"
-    class="side-menu">
-
-      <button onclick="toggleMenu()"
-      class="close-menu">
-
-        <i class="fas fa-times"></i>
-
-      </button>
-
-      <button onclick="showTab('home')"
-      class="menu-btn">
-
-        <i class="fas fa-home"></i>
-        Início
-
-      </button>
-
-      <button onclick="showTab('perfil')"
-      class="menu-btn">
-
-        <i class="fas fa-user"></i>
-        Perfil
-
-      </button>
-
-      <button onclick="showTab('voz'); iniciarDetectarVoz();"
-      class="menu-btn">
-
-        <i class="fas fa-microphone"></i>
-        Detectar Voz
-
-      </button>
-
-      <button onclick="showTab('comunidade')"
-      class="menu-btn">
-
-        <i class="fas fa-users"></i>
-        Comunidade
-
-      </button>
-
-      <button onclick="showTab('atividades')"
-      class="menu-btn">
-
-        <i class="fas fa-tasks"></i>
-        Atividades
-
-      </button>
-
+    <div id="sideMenu" class="side-menu">
+      <button onclick="toggleMenu()" class="close-menu"><i class="fas fa-times"></i></button>
+      <button onclick="showTab('home')" class="menu-btn"><i class="fas fa-home"></i> Início</button>
+      <button onclick="showTab('perfil')" class="menu-btn"><i class="fas fa-user"></i> Perfil</button>
+      <button onclick="showTab('comunidade')" class="menu-btn"><i class="fas fa-users"></i> Comunidade</button>
+      <button onclick="showTab('atividades')" class="menu-btn"><i class="fas fa-tasks"></i> Atividades</button>
+      <button onclick="showTab('voz'); iniciarDetectarVoz();" class="menu-btn"><i class="fas fa-microphone"></i> Detectar Voz</button>
     </div>
-
   </nav>
 
-  <!-- OVERLAY -->
-
-  <div id="menuOverlay"
-  onclick="toggleMenu()"
-  class="overlay"></div>
-
-  <!-- CONTAINER -->
+  <div id="menuOverlay" onclick="toggleMenu()" class="overlay"></div>
 
   <main class="container">
 
     <!-- HOME -->
-
-    <div id="tab-home"
-    class="tab-content active-grid grid-layout">
-
+    <div id="tab-home" class="tab-content active-grid grid-layout">
       <!-- TRADUTOR -->
-
       <div class="glass-card">
-
-        <h2 class="card-title">
-
-          <i class="fas fa-globe purple-icon"></i>
-
-          Tradutor Instantâneo
-
-        </h2>
-
+        <h2 class="card-title"><i class="fas fa-globe purple-icon"></i> Tradutor Instantâneo</h2>
         <div class="lang-selector-group">
-
           <select id="fromLang">
-
-            <option value="pt">
-              🇧🇷 Português
-            </option>
-
-            <option value="en">
-              🇺🇸 Inglês
-            </option>
-
-            <option value="es">
-              🇪🇸 Espanhol
-            </option>
-
-            <option value="fr">
-              🇫🇷 Francês
-            </option>
-
+            <option value="pt">🇧🇷 Português</option>
+            <option value="en">🇺🇸 Inglês</option>
+            <option value="es">🇪🇸 Espanhol</option>
+            <option value="fr">🇫🇷 Francês</option>
           </select>
-
-          <button onclick="swapLanguages()"
-          class="swap-btn">
-
-            <i class="fas fa-exchange-alt"></i>
-
-          </button>
-
+          <button onclick="swapLanguages()" class="swap-btn"><i class="fas fa-exchange-alt"></i></button>
           <select id="toLang">
-
-            <option value="en">
-              🇺🇸 Inglês
-            </option>
-
-            <option value="pt">
-              🇧🇷 Português
-            </option>
-
-            <option value="es">
-              🇪🇸 Espanhol
-            </option>
-
-            <option value="fr">
-              🇫🇷 Francês
-            </option>
-
+            <option value="en">🇺🇸 Inglês</option>
+            <option value="pt">🇧🇷 Português</option>
+            <option value="es">🇪🇸 Espanhol</option>
+            <option value="fr">🇫🇷 Francês</option>
           </select>
-
         </div>
-
-        <textarea id="inputText"
-        rows="5"
-        placeholder="Digite aqui..."></textarea>
-
-        <button onclick="traduzir()"
-        class="btn-primary btn-purple">
-
-          TRADUZIR
-
-        </button>
-
-        <textarea id="outputText"
-        rows="5"
-        readonly
-        class="output-box"
-        placeholder="A tradução aparecerá aqui..."></textarea>
-
+        <textarea id="inputText" rows="5" placeholder="Digite aqui..."></textarea>
+        <button onclick="traduzir()" class="btn-primary btn-purple">TRADUZIR</button>
+        <textarea id="outputText" rows="5" readonly class="output-box" placeholder="A tradução aparecerá aqui..."></textarea>
       </div>
 
       <!-- IA -->
-
       <div class="glass-card">
+        <h2 class="card-title"><i class="fas fa-robot fuchsia-icon"></i> Copiloto IA</h2>
+        <textarea id="iaInput" rows="5" placeholder="Pergunte algo para IA..."></textarea>
+        <button onclick="chamarIA()" class="btn-primary btn-fuchsia">REFINAR COM IA</button>
+        <div id="iaResponse" class="ia-response-box">🤖 Creative AI pronta.</div>
+      </div>
+    </div>
 
-        <h2 class="card-title">
-
-          <i class="fas fa-robot fuchsia-icon"></i>
-
-          Copiloto IA
-
-        </h2>
-
-        <textarea id="iaInput"
-        rows="5"
-        placeholder="Pergunte algo para IA..."></textarea>
-
-        <button onclick="chamarIA()"
-        class="btn-primary btn-fuchsia">
-
-          REFINAR COM IA
-
-        </button>
-
-        <!-- IA RESPONSE -->
-
-        <div id="iaResponse"
-        class="ia-response-box">
-
-🤖 Creative AI pronta.
-
+    <!-- COMUNIDADE -->
+    <div id="tab-comunidade" class="tab-content">
+      <div class="glass-card">
+        <h2><i class="fas fa-users"></i> Comunidade</h2>
+        <div class="post-form">
+          <textarea id="postText" placeholder="O que você quer compartilhar hoje?"></textarea>
+          <input type="file" id="postImageInput" accept="image/*" style="margin:10px 0;">
+          <button onclick="criarPost()" class="btn-primary btn-purple">Publicar</button>
         </div>
+      </div>
+      <div id="feed" class="feed"></div>
+    </div>
 
+    <!-- ATIVIDADES -->
+    <div id="tab-atividades" class="tab-content">
+      <div class="glass-card">
+        <h2><i class="fas fa-tasks"></i> Atividades</h2>
+        <div id="atividades-grid" class="language-grid"></div>
       </div>
 
+      <!-- Quiz Container -->
+      <div id="quiz-container" class="glass-card" style="display:none;">
+        <h3 id="quiz-title"></h3>
+        <p id="quiz-question" style="font-size:1.2rem; margin:20px 0;"></p>
+        <div id="quiz-options"></div>
+        <button id="next-btn" onclick="nextQuestion()" style="display:none; margin-top:15px;">Próxima Pergunta</button>
+      </div>
     </div>
 
     <!-- PERFIL -->
-
-    <div id="tab-perfil"
-    class="tab-content">
-
+    <div id="tab-perfil" class="tab-content">
       <div class="glass-card profile-card">
-
         <div class="profile-header">
-
-          <div class="profile-avatar">
-
-            <i class="fas fa-user"></i>
-
-          </div>
-
+          <div class="profile-avatar"><i class="fas fa-user"></i></div>
           <div>
-
             <h2>Vini</h2>
-
             <p>@creativeuser</p>
-
           </div>
-
         </div>
-
         <div class="profile-stats">
-
-          <div class="stat-box">
-
-            <h3>245</h3>
-
-            <span>Traduções</span>
-
-          </div>
-
-          <div class="stat-box">
-
-            <h3>12</h3>
-
-            <span>Dias Seguidos</span>
-
-          </div>
-
-          <div class="stat-box">
-
-            <h3>EN</h3>
-
-            <span>Idioma Principal</span>
-
-          </div>
-
+          <div class="stat-box"><h3>245</h3><span>Traduções</span></div>
+          <div class="stat-box"><h3>12</h3><span>Dias Seguidos</span></div>
+          <div class="stat-box"><h3>EN</h3><span>Idioma Principal</span></div>
         </div>
-
         <div class="profile-section">
-
           <h3>Idiomas em progresso</h3>
-
-          <div class="progress-item">
-
-            <span>🇺🇸 Inglês</span>
-
-            <div class="progress-bar">
-
-              <div class="progress-fill"
-              style="width:72%"></div>
-
-            </div>
-
-          </div>
-
-          <div class="progress-item">
-
-            <span>🇪🇸 Espanhol</span>
-
-            <div class="progress-bar">
-
-              <div class="progress-fill"
-              style="width:35%"></div>
-
-            </div>
-
-          </div>
-
+          <div class="progress-item"><span>🇺🇸 Inglês</span><div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div></div>
+          <div class="progress-item"><span>🇪🇸 Espanhol</span><div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div></div>
         </div>
-
       </div>
-
     </div>
 
     <!-- DEV -->
-
-    <div id="tab-dev"
-    class="tab-content dev-screen glass-card">
-
-      <div class="dev-icon-box">
-
-        <i class="fas fa-screwdriver-wrench"></i>
-
-      </div>
-
+    <div id="tab-dev" class="tab-content dev-screen glass-card">
+      <div class="dev-icon-box"><i class="fas fa-screwdriver-wrench"></i></div>
       <h2>Ainda em desenvolvimento</h2>
-
       <p>Essa área ainda está sendo criada.</p>
-
-      <button onclick="showTab('home')"
-      class="btn-back">
-
-        Voltar
-
-      </button>
-
+      <button onclick="showTab('home')" class="btn-back">Voltar</button>
     </div>
 
   </main>
 
-  <!-- JS -->
-
   <script src="script.js"></script>
-
 </body>
 </html>
